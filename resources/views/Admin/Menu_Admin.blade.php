@@ -31,7 +31,7 @@
                     <li class="active">
                         <a href="{{route('ViewContentAdmin')}}">
                            <i class="fa fa-home" aria-hidden="true" style="font-size: 20px;margin-top:  5px;"></i>
-                            <span>Home</span>
+                            <span style="font-size: 18px;">Home</span>
                         </a>
                     </li>   
 {{--                     <li>
@@ -44,7 +44,7 @@
                             <div style="float: left">
                                 <a href="{{route('ViewProductAdmin')}}"><i class=" fa fa-product-hunt" style="font-size: 20px;margin-top:  5px;" aria-hidden="true"></i>
                            
-                                    <span>Product</span>
+                                    <span style="font-size: 18px;">Product</span>
                                     
                                 </a>
                             </div>
@@ -68,7 +68,7 @@
                         <div style="float: left">
                                 <a href="{{route('user_Admin')}}"><i class=" fa fa-user" style="font-size: 20px;margin-top:  5px;" aria-hidden="true"></i>
                            
-                                    <span>User</span>
+                                    <span style="padding-left: 5px; font-size: 18px;">User</span>
                                     
                                 </a>
                             
@@ -77,11 +77,16 @@
                     <li>
                     {{-- firstpro và today lay tu app service provider --}}
                         <a href="{{route('ChartById_Admin',[$firstPro,$today,$today])}}">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Charts</span>
+                            <i class=" fa fa-pie-chart" style="font-size: 20px;margin-top:  5px;"></i>
+                            <span  style="font-size: 18px;">Charts</span>
                         </a>
                     </li>
-
+                    <li>
+                            <a href="{{route('ChartById_Admin',[$firstPro,$today,$today])}}">
+                            <i class="fa fa-newspaper-o"  style="font-size: 20px;margin-top:  5px;"></i>
+                            <span style="font-size: 18px;">News</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
                         <!-- Footer -->
