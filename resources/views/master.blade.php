@@ -41,7 +41,6 @@
 <meta property="og:url" content="https://mendover-theme-1.bizwebvietnam.net">
 <meta property="og:site_name" content="Mendover Theme">
 
-
 <!-- script -->
 @include('script')
 
@@ -223,8 +222,11 @@
               </script>
               <!-- End Google Tag Manager -->
 
+            
             </head>
             <body>
+           
+           
               <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="image/0F7S7QWJ0Ac.htm" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
               <!-- script 11 -->
               <script>
@@ -236,101 +238,9 @@
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
               </script>
-              <!-- Menu mobile -->
-              <div id="mySidenav" class="sidenav menu_mobile hidden-md hidden-lg" style="height: 657px;">
-                <span class="close_menu">
-                </span>
-                <div class="content_memu_mb">
-                  <div class="link_list_mobile">
-                    <ul class="ct-mobile">
-
-                      <li class="level0 level-top parent">
-                        <a href="https://mendover-theme-1.bizwebvietnam.net/">Trang chủ</a>
-
-                      </li>
-
-                      <li class="level0 level-top parent">
-                        <a href="https://mendover-theme-1.bizwebvietnam.net/gioi-thieu">Giới thiệu</a>
-
-                      </li>
-
-                      <li class="level0 level-top parent">
-                        <a href="https://mendover-theme-1.bizwebvietnam.net/collections/all">Sản phẩm</a>
-
-                        <i class="ti-plus fa fa-angle-right"></i>
-                        <ul class="level0 sub-menu" style="display:none;">
-
-                          <li class="level1">
-                            <a href="https://mendover-theme-1.bizwebvietnam.net/nha-o"><span>Nhà ở</span></a>
-
-                            <i class="ti-plus fa fa-angle-right"></i>
-                            <ul class="level1 sub-menu" style="display:none;">
-
-                              <li class="level2">
-                                <a href="https://mendover-theme-1.bizwebvietnam.net/"><span>sub1</span></a>
-                              </li>
-
-                            </ul>
-
-                          </li>
-
-                          <li class="level1">
-                            <a href="https://mendover-theme-1.bizwebvietnam.net/can-ho"><span>Căn hộ</span></a>
-
-                            <i class="ti-plus fa fa-angle-right"></i>
-                            <ul class="level1 sub-menu" style="display:none;">
-
-                              <li class="level2">
-                                <a href="https://mendover-theme-1.bizwebvietnam.net/"><span>Sub2</span></a>
-                              </li>
-
-                            </ul>
-
-                          </li>
-
-                          <li class="level1">
-                            <a href="https://mendover-theme-1.bizwebvietnam.net/chung-cu"><span>Chung cư</span></a>
-
-                          </li>
-
-                          <li class="level1">
-                            <a href="https://mendover-theme-1.bizwebvietnam.net/van-phong"><span>Văn phòng</span></a>
-
-                          </li>
-
-                          <li class="level1">
-                            <a href="https://mendover-theme-1.bizwebvietnam.net/nha-du-an"><span>Nhà ở dự án</span></a>
-
-                          </li>
-
-                          <li class="level1">
-                            <a href="https://mendover-theme-1.bizwebvietnam.net/loai-khac"><span>Loại khác</span></a>
-
-                          </li>
-
-                        </ul>
-
-                      </li>
-
-                      <li class="level0 level-top parent">
-                        <a href="https://mendover-theme-1.bizwebvietnam.net/tin-tuc">Tin tức</a>
-
-                      </li>
-
-                      <li class="level0 level-top parent">
-                        <a href="https://mendover-theme-1.bizwebvietnam.net/lien-he">Liên hệ</a>
-
-                      </li>
-
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="fix_height_mobile" style="float:left;width:100%;">
-                <div class="ops"></div>
 
                @include('header')
-                <div class="fvc" style="float:left;width:100%;">
+               <div class="fvc" style="float:left;width:100%;">
                   <h1 class="hidden">Mendover Theme - </h1>
 
                 @yield('content')

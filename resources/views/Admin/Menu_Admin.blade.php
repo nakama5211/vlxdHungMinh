@@ -82,7 +82,7 @@
                         </a>
                     </li>
                     <li>
-                            <a href="{{route('ChartById_Admin',[$firstPro,$today,$today])}}">
+                            <a href="#">
                             <i class="fa fa-newspaper-o"  style="font-size: 20px;margin-top:  5px;"></i>
                             <span style="font-size: 18px;">News</span>
                         </a>

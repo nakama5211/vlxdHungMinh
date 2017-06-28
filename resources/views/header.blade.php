@@ -1,3 +1,51 @@
+
+<div id="mySidenav" class="sidenav menu_mobile hidden-md hidden-lg" style="height: 657px;">
+  <span class="close_menu"></span>
+  <div class="content_memu_mb">
+    <div class="link_list_mobile">
+      <ul class="ct-mobile">
+        <li class="level0 level-top parent">
+            <a href="{{route('home')}}">Trang chủ</a>
+
+        </li>
+
+        <li class="level0 level-top parent">
+            <a href="{{route('info')}}">Giới thiệu</a>
+
+        </li>
+
+        <li class="level0 level-top parent">
+            <a href="{{route('allPro')}}">Sản phẩm</a>
+            <i class="ti-plus fa fa-angle-right"></i>
+            <ul class="level0 sub-menu" style="display:none;">
+              <li class="level1">
+                @for($i=0;$i<count($type);$i++)
+                  <li><a href="{{route('type',$type[$i]['id'])}}">{{$type[$i]['name']}}</a></li>
+                @endfor
+              </li>
+            </ul>
+
+        </li>
+
+        <li class="level0 level-top parent">
+          <a href="{{route('news')}}">Tin tức</a>
+
+        </li>
+        <li class="level0 level-top parent">
+          <a href="{{route('contact')}}">Liên hệ</a>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="fix_height_mobile" style="float:left;width:100%;">
+<div class="ops"></div>
+
+                
+
+
  <header class="tz-header tz-header2">
                   <div class="overlay"></div>
                   <div class="header-top-bar">
@@ -141,13 +189,6 @@
                                       <li>
                                         <a href="https://mendover-theme-1.bizwebvietnam.net/nha-du-an">Nhà ở dự án</a>
                                       </li> -->
-                                      
-                                      
-                                     <!--  @foreach ($type as $t)
-                                      <li>
-                                        <a href="">{{$t->name}}</a>
-                                      </li>
-                                      @endforeach -->
                                       @for($i=0;$i<count($type);$i++)
                                       <li><a href="{{route('type',$type[$i]['id'])}}">{{$type[$i]['name']}}</a></li>
                                       @endfor
@@ -175,6 +216,8 @@
                         
                         
                       </ul>
+                              <!-- Menu mobile -->
+
                     </nav>
                   </div><!--end class container-->
                 </header><!--end class tz-header-->

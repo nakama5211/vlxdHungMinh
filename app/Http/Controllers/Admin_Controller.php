@@ -12,6 +12,7 @@ use App\TypeProduct;
 use App\Bill_Detail;
 use Carbon\Carbon;
 use App\User;
+use App\News;
 class Admin_Controller extends Controller
 {
    public function ViewContent_Admin()
@@ -91,5 +92,9 @@ class Admin_Controller extends Controller
    }
    public function ViewProductbyDay(){
       $view=Product::ViewProductByDay();
+   }
+   public function ShowAllNews(){
+      $news=News::Load_ALL_News()->get();
+      return view('Admin.News_Admin',compact('news'));
    }
 }
