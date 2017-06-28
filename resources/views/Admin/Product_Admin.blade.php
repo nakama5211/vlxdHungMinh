@@ -24,7 +24,7 @@
                         </div>
                         <br>
                             <table  class="table table-striped table-nonfluid" align="center" id="product_table" >
-                            @if($type==0)
+                            @if($typepro==0)
                                 <thead>
                            {{-- <th><input type="checkbox" id="checkall" /></th> --}}
                                     <th style="width: 100px;">id</th>
@@ -69,7 +69,7 @@
                                                 <td><input type="text" name="name" id="new_name" required=""></td>
                                                  <td>
                                                     <select class="selectpicker" name="new_type" id="new_type">
-                                                        @foreach($type_product as $type)
+                                                        @foreach($type as $type)
                                                             <option value="{{ $type->id }}" >{{ $type->name }}</option>
                                                         @endforeach
                                                     </select> 

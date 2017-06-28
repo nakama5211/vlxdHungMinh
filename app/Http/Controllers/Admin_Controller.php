@@ -25,8 +25,8 @@ class Admin_Controller extends Controller
      //Hiện tất cả sản phẩm
    public function Select_Product(){
    	$product=Product::Show_Product_All()->paginate(5);
-      $type=0;
-   	return view('Admin.Product_Admin',compact('product','type'));
+      $typepro=0;
+   	return view('Admin.Product_Admin',compact('product','typepro'));
    }
    public function FindProductByType(Request $req){
    		$product=Product::Find_Product_By_Type($req->id)->paginate(5);

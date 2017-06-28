@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer(['header','page.typeproduct','page.sanpham','section.sanphamnoibat'],function($view){
+        view()->composer(['header','page.typeproduct','page.sanpham','section.sanphamnoibat','Admin.Product_Admin'],function($view){
             $type =  TypeProduct::all();
             $view->with('type',$type);
         });
@@ -33,10 +33,6 @@ class AppServiceProvider extends ServiceProvider
             $firstPro=$firstPro->id;
             $type_product=TypeProduct::Show_Type_product()->get();
             $view->with(['type_product'=>$type_product,'today'=>$dt,'firstPro'=>$firstPro]);
-        });
-         view()->composer('Admin.Product_Admin',function($view){
-                $type_product=TypeProduct::Show_Type_product()->get();
-                $view->with('type_product',$type_product);
         });
     }
 
