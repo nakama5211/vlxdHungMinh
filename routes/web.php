@@ -35,7 +35,9 @@ Route::post('Insert_Product',
 Route::get('Delete_Product/{id}',
 	['as'=>'Delete_Product',
 	 'uses'=>'Admin_Controller@Delete_Product']);
-
+Route::get('Delete_TypeProduct/{id}',
+	['as'=>'Delete_TypeProduct',
+	 'uses'=>'Admin_Controller@Delete_TypeProduct']);
 Route::get('user_Admin',
 	['as'=>'user_Admin',
 	 'uses'=>'Admin_Controller@Select_User']);

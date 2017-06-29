@@ -64,6 +64,16 @@
                             </div>
                             <div style="clear: both"></div>
                     </li>
+                     <li >
+                            <div style="float: left">
+                                <a href="{{route('')}}"><i class=" fa fa-product-hunt" style="font-size: 20px;margin-top:  5px;" aria-hidden="true"></i>
+                           
+                                    <span style="font-size: 18px;">TypeProduct</span>
+                                    
+                                </a>
+                            </div>
+                            <div style="clear: both"></div>
+                    </li>
                      <li>
                         <div style="float: left">
                                 <a href="{{route('user_Admin')}}"><i class=" fa fa-user" style="font-size: 20px;margin-top:  5px;" aria-hidden="true"></i>

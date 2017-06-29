@@ -51,15 +51,11 @@ class Admin_Controller extends Controller
          // $req->file('image')->move('image',$filename);
          $getId=Product::Insert_Product($name, $type, $desc, $unit_price, $pro_price, $unit);
       // }
-      
-
       // if(Input::hasFile('image')){
       //    $image = Input::file('image')->getClientOriginalName();
       
       //  Input::file('image')->move('image', $image);
       // }
-       
-     
       return $getId;
    } 
 
@@ -83,8 +79,9 @@ class Admin_Controller extends Controller
    public function Delete_Product( $id){
       $pro=Product::Delete_Product($id);
    }
-   
-
+   public function Delete_TypeProduct($id){
+      $type=TypeProduct::Delete_Type_product($id);
+   }
    public function ChartById_Admin($id,$created_at_from,$created_at_to){
          $chart=Bill_Detail::FindSum_QuantityById($id,$created_at_from,$created_at_to);
          $pro=Product::Show_Product_All()->get();
@@ -97,4 +94,5 @@ class Admin_Controller extends Controller
       $news=News::Load_ALL_News()->get();
       return view('Admin.News_Admin',compact('news'));
    }
+
 }
