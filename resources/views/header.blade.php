@@ -56,7 +56,6 @@
                               
                               <a href="https://mendover-theme-1.bizwebvietnam.net/account/login" class=""><i class="fa fa-user"></i></a>
 
-                              
                               <ul class="reg_mobile">
                                 
                                 <li><a href="{{route('Login')}}">Đăng nhập</a></li>
@@ -66,10 +65,14 @@
                             </div>
                             <div class="menu-top-menu hidden-xs">
                               <ul>
-                                
+                                @if(Auth::check())
+                                <li><a href="#"><i class="fa fa-user"></i>Chào bạn {{Auth::User()->full_name}}</a></li>
+                                <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+
+                                @else
                                 <li><a href="{{route('Login')}}">Đăng nhập</a></li>
                                 <li><a href="{{route('register')}}">Đăng ký</a></li>
-                                
+                                @endif
                               </ul>
                             </div>
                           </div>

@@ -88,6 +88,10 @@ Route::get('register',[
 Route::post('register',[
 	'as'=>'register',
 	'uses'=>'LoginLogoutRegister_Controller@postRegister']);
+Route::get('logout',[
+	'as'=>'logout',
+	'uses'=>'LoginLogoutRegister_Controller@getLogout'
+]);
 Route::get('Info',
 	['as'=>'info',
 	 'uses'=>'Home_Controller@info']);
