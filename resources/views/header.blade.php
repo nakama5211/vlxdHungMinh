@@ -66,9 +66,13 @@
                             <div class="menu-top-menu hidden-xs">
                               <ul>
                                 @if(Auth::check())
+                                @if(Auth::User()->group == 1)
+                                <li><a href="{{route('ViewContentAdmin')}}"><i class="fa fa-user"></i>Chào bạn {{Auth::User()->full_name}}</a></li>
+                                <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                                @else
                                 <li><a href="#"><i class="fa fa-user"></i>Chào bạn {{Auth::User()->full_name}}</a></li>
                                 <li><a href="{{route('logout')}}">Đăng xuất</a></li>
-
+                                @endif
                                 @else
                                 <li><a href="{{route('Login')}}">Đăng nhập</a></li>
                                 <li><a href="{{route('register')}}">Đăng ký</a></li>
