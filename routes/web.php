@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//gọi các trang trong admin
 Route::get('ViewContent_Admin',
 	['as'=>'ViewContentAdmin',
 	'uses'=>'Admin_Controller@ViewContent_Admin']);
@@ -25,6 +26,8 @@ Route::get('DeleteProductById_Admin/{id}',
 Route::get('ChartById_Admin/{id}/{created_at_from}/{created_at_to}',
 	['as'=>'ChartById_Admin',
 	'uses'=>'Admin_Controller@ChartById_Admin']);
+//sản phẩm
+
 
 Route::get('Edit_Product/{id}/{name}/{desc}/{unit_price}/{pro_price}/{image}/{unit}',
 	['as'=>'Edit_Product',
@@ -35,9 +38,19 @@ Route::post('Insert_Product',
 Route::get('Delete_Product/{id}',
 	['as'=>'Delete_Product',
 	 'uses'=>'Admin_Controller@Delete_Product']);
+//Loại sản phẩm admin
+
+
 Route::get('Delete_TypeProduct/{id}',
 	['as'=>'Delete_TypeProduct',
 	 'uses'=>'Admin_Controller@Delete_TypeProduct']);
+Route::get('ViewType_Product',
+	['as'=>'ViewType_Product', 
+	'uses'=>'Admin_Controller@View_TypeProduct']);
+
+
+//user admin
+
 Route::get('user_Admin',
 	['as'=>'user_Admin',
 	 'uses'=>'Admin_Controller@Select_User']);
@@ -56,7 +69,7 @@ Route::get('Delete_User/{id}',
 
 
  Route::get('/','Home_Controller@getIndex');
-
+//trang bán hàng
 Route::get('home',[
 	'as'=>'home',
 	'uses'=>'Home_Controller@getIndex']);

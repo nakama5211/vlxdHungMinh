@@ -66,7 +66,7 @@
                     </li>
                      <li >
                             <div style="float: left">
-                                <a href="{{route('')}}"><i class=" fa fa-product-hunt" style="font-size: 20px;margin-top:  5px;" aria-hidden="true"></i>
+                                <a href="{{route('ViewType_Product')}}"><i class=" fa fa-product-hunt" style="font-size: 20px;margin-top:  5px;" aria-hidden="true"></i>
                            
                                     <span style="font-size: 18px;">TypeProduct</span>
                                     
@@ -95,6 +95,12 @@
                             <a href="#">
                             <i class="fa fa-newspaper-o"  style="font-size: 20px;margin-top:  5px;"></i>
                             <span style="font-size: 18px;">News</span>
+                        </a>
+                    </li>
+                    <li>
+                            <a href="#">
+                            <i class="fa fa-usd"  style="font-size: 20px;margin-top:  5px;"></i>
+                            <span style="font-size: 18px; padding-left: 10px;">Bill</span>
                         </a>
                     </li>
                 </ul>

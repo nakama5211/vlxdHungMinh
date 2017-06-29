@@ -23,35 +23,27 @@
                            {{-- <th><input type="checkbox" id="checkall" /></th> --}}
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Password</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>
-                                    <th>Created at</th>
-                                    <th>Active</th>
-                                    <th>Group</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>created_at</th>
+                                    <th>updated_at</th>
                                 </thead>
                                 <tbody>
-                                    @foreach($user as $users)
-                                        <tr id="row{{$users->id }}">
+                                    @foreach($typeproduct as $tp)
+                                        <tr id="row{{$tp->id }}">
                                                 {{-- <td><input type="checkbox" class="checkthis" /></td> --}}
-                                            <td id="id{{ $users->id }}">{{ $users->id }}</td>
-                                            <td id="name{{ $users->id }}">{{ $users->full_name }}</td>
-                                            <td id="email{{ $users->id }}">{{ $users->email }}</td>
-                                            <td id="pass{{ $users->id }}">{{ $users->password }}</td>
-                                            <td id="phone{{ $users->id }}">{{ $users->phone }}</td>
-                                            <td id="add{{ $users->id }}">{{ $users->address }}</td>
-                                            <td id="created_at{{ $users->id }}">{{ $users->created_at }}</td>
-                                            <td id="active{{ $users->id }}">{{ $users->active }}</td>
-                                            <td id="group{{ $users->id }}">{{ $users->group }}</td>
+                                            <td id="id{{ $tp->id }}">{{ $tp->id }}</td>
+                                            <td id="name{{ $tp->id }}">{{ $tp->name }}</td>
+                                            <td id="Description{{ $tp->id }}">{{ $tp->description }}</td>
+                                            <td id="Image{{$tp->id}}">{{$tp->image}}</td>
+                                            <td id="created_at{{ $tp->id }}">{{ $tp->created_at }}</td>
+                                            <td id="updated_at{{ $tp->id }}">{{ $tp->updated_at }}</td>
                                             <td>
-                                                <button class="btn btn-info btn-lg glyphicon glyphicon-hand-right" style="border-radius: 10px;" id="edit_button{{ $users->id  }}" onclick="edit_row('{{ $users->id  }}');"> Edit</button>
-                                                <button class=" save_button btn btn-success btn-lg glyphicon glyphicon-save" style="border-radius: 10px;" id="save_button{{ $users->id  }}" onclick="save_row('{{ $users->id  }}');"> Save</button>
+                                                <button class="btn btn-info btn-lg glyphicon glyphicon-hand-right" style="border-radius: 10px;" id="edit_button{{ $tp->id  }}" onclick="edit_row('{{ $tp->id  }}');"> Edit</button>
+                                                <button class=" save_button btn btn-success btn-lg glyphicon glyphicon-save" style="border-radius: 10px;" id="save_button{{ $tp->id  }}" onclick="save_row('{{ $tp->id  }}');"> Save</button>
                                             </td>
                                             <td>
-                                                <button class="btn btn-warning btn-lg glyphicon glyphicon-trash" style="border-radius: 10px" id="delete_button{{ $users->id  }}" onclick="delete_row('{{ $users->id}}');"> Delete</button>
+                                                <button class="btn btn-warning btn-lg glyphicon glyphicon-trash" style="border-radius: 10px" id="delete_button{{ $tp->id  }}" onclick="delete_row('{{ $tp->id}}');"> Delete</button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -73,7 +65,7 @@
                                         </tr>
                                 </tbody>
                             </table>
-                            <div>{{ $user->links() }}</div>
+                            <div>{{ $typeproduct->links() }}</div>
                             <input style="position: absolute; display: none;">
                         </div>
                     </div>
@@ -99,7 +91,7 @@
                 },function (result) {
                     if(result)
                     {
-                        var route="{{route('Delete_User','id')}}";
+                        var route="{{route('Delete_TypeProduct','id')}}";
                         route=route.replace('id',idUser);
                         $.ajax({
                         url:route,

@@ -18,4 +18,8 @@ class TypeProduct extends Model
 		$pro=DB::table('products')->where('id_type',$id)->delete();
 		$type_pro=DB::table('type_products')->where('id',$id)->delete();
 	}
+	public static function ALL_Type_product(){
+		$Type_product=DB::table('type_products')->select();
+		return $Type_product;
+	}	
 }

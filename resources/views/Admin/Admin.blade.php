@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-   {{--  @if(Session::get('group')!=1)
+{{--     @if(Session::get('group')!=1)
         <script type="text/javascript">
             window.location.href = "{{route('home')}}";
         </script>
@@ -120,6 +120,6 @@
 
             @yield('Admin.Content_Admin')
         </body>
-    {{-- @endif --}}
+{{--     @endif --}}
 </html>
    

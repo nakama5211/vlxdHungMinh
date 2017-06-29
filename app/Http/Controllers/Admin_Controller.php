@@ -23,21 +23,46 @@ class Admin_Controller extends Controller
       $FindSumQuantity=Bill_Detail::FindSum_Quantity();
    	return view('Admin.Content_Admin',compact('MostViewProduct','Total_view','FindSumQuantity'));
    }
-     //Hiện tất cả sản phẩm
-   public function Select_Product(){
-   	$product=Product::Show_Product_All()->paginate(5);
-      $typepro=0;
-   	return view('Admin.Product_Admin',compact('product','typepro'));
+//Loại sản phẫm 
+
+
+
+
+   public function Delete_TypeProduct($id){
+      $type=TypeProduct::Delete_Type_product($id);
    }
-   public function FindProductByType(Request $req){
+   public function ChartById_Admin($id,$created_at_from,$created_at_to){
+         $chart=Bill_Detail::FindSum_QuantityById($id,$created_at_from,$created_at_to);
+         $pro=Product::Show_Product_All()->get();
+         return view('Admin.ChartById_Admin',compact('chart','pro'));
+   }
+     
+
+
+      public function View_TypeProduct(){
+            $typeproduct=TypeProduct::ALL_Type_product()->paginate(10);
+            return view('Admin.TypeProduct_Admin',compact('typeproduct'));
+      }
+      public function FindProductByType(Request $req){
    		$product=Product::Find_Product_By_Type($req->id)->paginate(5);
-         $type=1;
-   	return view('Admin.Product_Admin',compact('product','type'));
+         $typepro=1;
+   	return view('Admin.Product_Admin',compact('product','typepro'));
+      }
+
+
+
+
+      //sản phẩm
+           //Hiện tất cả sản phẩm
+      public function Select_Product(){
+         $product=Product::Show_Product_All()->paginate(5);
+         $typepro=0;
+         return view('Admin.Product_Admin',compact('product','typepro'));
       }
        public function Edit_Product( $id, $name, $desc, $unit_price, $pro_price, $image, $unit){
       $pro=Product::Edit_Product($id,$name, $desc, $unit_price, $pro_price, $image, $unit);
       return $pro;
-   }
+       }
       public function Insert_Product(Request $req){
       $filename="";
       $name = $req->input('name');
@@ -57,8 +82,18 @@ class Admin_Controller extends Controller
       //  Input::file('image')->move('image', $image);
       // }
       return $getId;
-   } 
+      } 
+      public function Delete_Product( $id){
+      $pro=Product::Delete_Product($id);
+      }
+      public function ViewProductbyDay(){
+         $view=Product::ViewProductByDay();
+      }
 
+
+
+
+   //User
      public function Select_User(){
       $user=User::User_All()->paginate(8);
   
@@ -76,20 +111,7 @@ class Admin_Controller extends Controller
       $user=User::Delete_User($id);
    }
 
-   public function Delete_Product( $id){
-      $pro=Product::Delete_Product($id);
-   }
-   public function Delete_TypeProduct($id){
-      $type=TypeProduct::Delete_Type_product($id);
-   }
-   public function ChartById_Admin($id,$created_at_from,$created_at_to){
-         $chart=Bill_Detail::FindSum_QuantityById($id,$created_at_from,$created_at_to);
-         $pro=Product::Show_Product_All()->get();
-         return view('Admin.ChartById_Admin',compact('chart','pro'));
-   }
-   public function ViewProductbyDay(){
-      $view=Product::ViewProductByDay();
-   }
+ 
    public function ShowAllNews(){
       $news=News::Load_ALL_News()->get();
       return view('Admin.News_Admin',compact('news'));
