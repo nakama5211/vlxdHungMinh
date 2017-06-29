@@ -39,7 +39,7 @@
 
 							@for ($i=0;$i<count($type);$i++)
 								@if ($type[$i]['name'] == $name)
-								<li class="li_lv1 active"> <a href="{{route('type',$type[$i]['id'])}}">{{$name}}</a> <span class="sub_minus"></span>
+								<li class="li_lv1 active"> <a href="{{route('type',$type[$i]['name_khong_dau'])}}">{{$name}}</a> <span class="sub_minus"></span>
 									<ul class="level0_415">
 
 
@@ -63,26 +63,7 @@
 			
 								@else
 
-								<li class="li_lv1 "> <a href="{{route('type',$type[$i]['id'])}}">{{$type[$i]['name']}}</a> <span class="sub_minus"></span>
-									<ul class="level0_415">
-
-
-										<li class="li_lv2"> <a href="/"> Sub2 </a></li>
-
-
-										<!--level1-->
-									</ul>
-									<!--level0-->
-									<!--level0 hover -->
-									<ul class="level0_415_hover hidden-xs hidden-sm">
-
-
-										<li class="li_lv2_hover "> <a href="/"> Sub2 </a></li>
-
-
-										<!--level1-->
-									</ul>
-									<!--level0-->
+								<li class="li_lv1 "> <a href="{{route('type',$type[$i]['name_khong_dau'])}}">{{$type[$i]['name']}}</a> <span class="sub_minus"></span>
 								</li>
 								@endif
 							@endfor
@@ -242,7 +223,7 @@
 												Mua ngay
 											</a>
 
-											<a href="{{route('detail',$pro->id)}}" class="tzheart">
+											<a href="{{route('detail',$pro->name_khong_dau)}}" class="tzheart">
 												Chi tiết
 											</a>
 										</span>
