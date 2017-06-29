@@ -67,7 +67,7 @@
                               <ul>
                                 @if(Auth::check())
                                 @if(Auth::User()->group == 1)
-                                <li><a href="{{route('ViewContentAdmin')}}"><i class="fa fa-user"></i>Chào bạn {{Auth::User()->full_name}}</a></li>
+                                <li><a href="{{route('ViewContentAdmin')}}"><i class="fa fa-user"></i>Admin {{Auth::User()->full_name}}</a></li>
                                 <li><a href="{{route('logout')}}">Đăng xuất</a></li>
                                 @else
                                 <li><a href="#"><i class="fa fa-user"></i>Chào bạn {{Auth::User()->full_name}}</a></li>
