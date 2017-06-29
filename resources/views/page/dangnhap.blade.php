@@ -26,12 +26,13 @@
 			<div class="joom-login">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">	
+					<h3 class="tz-title-bold-3">ĐĂNG NHẬP TÀI KHOẢN</h3>
 					@if(Session::has('thatbai'))
 					<div class="alert alert-danger">{{Session::get('thatbai')}}</div>
 					@endif				
 						<form class="form-horizontal" accept-charset="UTF-8" action="{{route('login')}}" id="customer_login" method="post">
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
-							<h3 class="tz-title-bold-3">ĐĂNG NHẬP TÀI KHOẢN</h3>
+							
 
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

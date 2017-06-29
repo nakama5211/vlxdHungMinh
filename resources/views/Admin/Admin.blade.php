@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html>
-{{--     @if(Session::get('group')!=1)
-        <script type="text/javascript">
-            window.location.href = "{{route('home')}}";
-        </script>
-
-    @else --}}
-    
+    @if(Auth::check())
+        @if(Auth::User()->group==1)
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -119,6 +114,18 @@
 
             @yield('Admin.Content_Admin')
         </body>
-{{--     @endif --}}
+        @else
+             <script type="text/javascript">
+            window.location.href = "{{route('home')}}";
+            </script>
+        @endif
+
+    @else
+             {{--  @if(Auth::User()->group=1) --}}
+        <script type="text/javascript">
+            window.location.href = "{{route('home')}}";
+        </script>
+    {{--     @endif --}}
+    @endif
 </html>
    
