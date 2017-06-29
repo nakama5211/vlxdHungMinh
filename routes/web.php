@@ -64,7 +64,9 @@ Route::get('Delete_User/{id}',
 	['as'=>'Delete_User',
 	 'uses'=>'Admin_Controller@Delete_User']);
 
-
+Route::get('convert',
+	['as'=>'convert',
+	'uses'=>'Admin_Controller@convert_vi_to_en']);
 
 
 
@@ -104,7 +106,7 @@ Route::get('contact',
 Route::get('allPro',
 	['as'=>'allPro',
 	 'uses'=>'Product_Controller@allProducts']);
-Route::get('type/{id}',
+Route::get('type/{name_khong_dau}',
 	['as'=>'type',
 	 'uses'=>'Type_Product_Controller@showType']);
 Route::get('detail/{id}',
