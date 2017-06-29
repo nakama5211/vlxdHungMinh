@@ -35,7 +35,6 @@
           <a href="{{route('contact')}}">Liên hệ</a>
 
         </li>
-
       </ul>
     </div>
   </div>
