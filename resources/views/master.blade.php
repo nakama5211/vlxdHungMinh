@@ -18,7 +18,7 @@
 
 </title>    
 <!-- ================= Page description ================== -->
-<base href="http://localhost/HungMinhLaravel/public/">
+<base href="http://localhost/vlxdHungMinh/public/">
 
 <meta name="description" content="">
 
