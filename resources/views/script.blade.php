@@ -6,7 +6,7 @@
 <script async="" src="js/gtm.js"></script>
 <script type="text/javascript" async="" src="js/69071.js"></script>
 <script type="text/javascript" async="" src="js/bizweb_stats.js"></script>
-<script src="js/jquery-1.js" integrity="sha256-VAvG3sHdS5LqTT+5A/aeq/bZGa/Uj04xKxY8KM/w9EE=" crossorigin="anonymous"></script>
+<script src="js/jquery-1.js" integrity="" crossorigin="anonymous"></script>
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/jquery-2.js" type="text/javascript"></script>
 <script src="js/jquery-parallax-min.js" type="text/javascript"></script>

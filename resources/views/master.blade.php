@@ -50,7 +50,7 @@
 <link href="css/css.css" rel="stylesheet" type="text/css">
 <link href="css/css_002.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/font-awesome.css">
-<link rel="stylesheet" href="css/bootstrap.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap.css" integrity="" crossorigin="anonymous">
 <link href="css/font-awesome_002.css" rel="stylesheet" type="text/css">
 <link href="css/owl_002.css" rel="stylesheet" type="text/css">
 <link href="css/jgrowl.css" rel="stylesheet" type="text/css">
