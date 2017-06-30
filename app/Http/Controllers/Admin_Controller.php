@@ -13,6 +13,7 @@ use App\Bill_Detail;
 use Carbon\Carbon;
 use App\User;
 use App\News;
+use PDF;    
 class Admin_Controller extends Controller
 {
    public function ViewContent_Admin()
@@ -26,7 +27,23 @@ class Admin_Controller extends Controller
 //Loại sản phẫm 
 
 
-
+   public function downloadPDF(Request $req){
+      if($req->type!=null){
+          $title="Tất cả các sản phẩm";
+         if($req->type==0){
+         $product=Product::Show_Product_All()->get();
+         $typepro=$req->type;
+         $pdf = PDF::loadView('Admin.PDF',compact('product','title','typepro'))->setPaper('a4', 'landscape');//Load view
+         }
+         else{
+            $product=Product::Find_Product_By_Type($req->type)->get();
+            $typepro=$req->type;
+            $pdf = PDF::loadView('Admin.PDF',compact('product','title','typepro'))->setPaper('a4', 'landscape');
+         }
+      }
+        //Tạo file xem trước pdf
+        return $pdf->stream();
+   }
 
    public function Delete_TypeProduct($id){
       $type=TypeProduct::Delete_Type_product($id);
@@ -59,7 +76,7 @@ class Admin_Controller extends Controller
       }
       public function FindProductByType(Request $req){
    		$product=Product::Find_Product_By_Type($req->id)->paginate(5);
-         $typepro=1;
+         $typepro=$req->id;
    	return view('Admin.Product_Admin',compact('product','typepro'));
       }
 
