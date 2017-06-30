@@ -28,7 +28,9 @@ Route::get('ChartById_Admin/{id}/{created_at_from}/{created_at_to}',
 	'uses'=>'Admin_Controller@ChartById_Admin']);
 //sản phẩm
 
-
+Route::get('viewPDF',
+	['as'=>'viewPDF',
+	'uses'=>'Admin_Controller@downloadPDF']);
 Route::get('Edit_Product/{id}/{name}/{desc}/{unit_price}/{pro_price}/{image}/{unit}',
 	['as'=>'Edit_Product',
 	 'uses'=>'Admin_Controller@Edit_Product']);

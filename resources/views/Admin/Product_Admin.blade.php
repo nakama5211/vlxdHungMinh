@@ -23,8 +23,9 @@
                             <br><br>
                         </div>
                         <br>
-                            <table  class="table table-striped table-nonfluid" align="center" id="product_table" >
                             @if($typepro==0)
+                            <table  class="table table-striped table-nonfluid" align="center" id="product_table" >
+                            
                                 <thead>
                            {{-- <th><input type="checkbox" id="checkall" /></th> --}}
                                     <th style="width: 100px;">id</th>
@@ -85,7 +86,11 @@
                                             </form>
                                         </tr>
                                 </tbody>
+                                </table>
+                                   <button type="button" class="btn btn-success" style="height:40px;width: 150px;  float:right; border-radius: 5px; margin-top: 25px;" id="viewpdf_allproduct">Xuất file pdf</button>
+
                             @else
+                                <table  class="table table-striped table-nonfluid" align="center" id="product_table" >
                                 <thead>
                            {{-- <th><input type="checkbox" id="checkall" /></th> --}}
                                     <th style="width: 100px;">id</th>
@@ -135,19 +140,32 @@
                                             <td><input type="text" disabled=""></td>
                                             <td><input type="text" disabled=""></td>
                                             <td><input  type ="button" class="btn btn-info btn-lg glyphicon glyphicon-floppy-save" style="border-radius: 10px;" value="Insert" onclick="insert_row();"></td> 
-                                            
-                                            
                                         </tr>
                                 </tbody>
+                                </table>
+                                 <input type="button" id="viewpdf_all{{$typepro}}"  class="btn btn-success" style="height:40px;width: 150px;  float:right; border-radius: 5px; margin-top: 25px;" value="Xuất file pdf">
                             @endif
-                            </table>
+                            
                             <div>{{ $product->links() }}</div>
+                         
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     <script type="text/javascript">
+            $("#viewpdf_allproduct").click(function(){
+
+                 var route="{{route('viewPDF','type=0')}}";
+                  window.location.replace(route);
+            });
+             $("#viewpdf_all"+{{$typepro}}).click(function(){
+                var typepro={{$typepro}}
+                var route="{{route('viewPDF','type=typepro')}}";
+                route=route.replace('typepro',typepro);
+                window.location.replace(route);
+            }); 
+               
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
