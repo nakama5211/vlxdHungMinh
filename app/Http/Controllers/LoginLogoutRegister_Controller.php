@@ -9,6 +9,7 @@ use File;
 use Illuminate\Support\Facades\Input;
 use Hash;
 use Auth;
+use Socialite;
 use App\User;
 
 class LoginLogoutRegister_Controller extends Controller
@@ -37,7 +38,10 @@ class LoginLogoutRegister_Controller extends Controller
         $user->phone = $req->phone;
         $user->address = $req->address;
 
-        $user->save();
+        if (!$user->save()){
+          return redirect()->back()->with('thongbao','Đăng ký thất bại');
+        }else return redirect()->back()->with('thongbao','Đăng ký thành công, Vui lòng kiểm tra Email');
+        
     //     $user = $user->toArray();
     //     Mail::send('page.mail',['nguoidung'=>$user], function ($message ) use($user)
     // {
@@ -46,7 +50,7 @@ class LoginLogoutRegister_Controller extends Controller
     //     $message->subject('Submit password');
     // });
 
-       return redirect()->back()->with('thongbao','Đăng ký thành công, Vui lòng kiểm tra Email');
+       
     }
 
    public function Register()
@@ -64,5 +68,54 @@ class LoginLogoutRegister_Controller extends Controller
     public function getLogout(){
         Auth::logout();
         return redirect()->route('home');
+    }
+
+    public function getMyPage(){
+      return view('page.myPage');
+    }
+
+
+
+
+    public function redirectToProvider($providers){
+        return Socialite::driver($providers)->redirect();
+    }
+    public function handleProviderCallback($providers){
+      try{
+          $socialUser = Socialite::driver($providers)->user();
+          //return $user->getEmail();
+      }
+      catch(\Exception $e){
+          return redirect()->route('home')->with(['flash_level'=>'danger','flash_message'=>"Đăng nhập không thành công"]);
+      }
+      $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())->first();
+      if(!$socialProvider){
+          //tạo mới
+          $user = User::where('email',$socialUser->getEmail())->first();
+          if($user){
+            return redirect()->route('home')->with(['flash_level'=>'danger','flash_message'=>"Email đã có người sử dụng"]);
+          }
+          else{
+            $user = new User();
+            $user->email = $socialUser->getEmail();
+            $user->full_name = $socialUser->getName();
+            //if($providers == 'google'){
+              $image = explode('?',$socialUser->getAvatar());
+              $user->avatar = $image[0];
+           // }
+           // $user->avatar = $socialUser->getAvatar();
+            $user->save();
+          }
+          $provider = new SocialProvider();
+          $provider->provider_id = $socialUser->getId();
+          $provider->provider = $providers;
+          $provider->email = $socialUser->getEmail();
+          $provider->save();
+      }
+      else{
+          $user = User::where('email',$socialUser->getEmail())->first();
+      }
+      Auth()->login($user);
+      return redirect()->route('home')->with(['flash_level'=>'success','flash_message'=>"Đăng nhập thành công"]);
     }
 }

@@ -47,11 +47,15 @@
 							<div class="fvc">
 								<div class="f_pass">
 									<a class="forgot forgot-word" href="#recover" onclick="showRecoverPasswordForm();return false;" id="RecoverPassword">Quên mật khẩu?</a>
-									<a href="/account/register">Đăng ký tài khoản mới ?</a>
+									<a href="{{route('register')}}">Đăng ký tài khoản mới ?</a>
 								</div>
 							</div>
 							<div class="controls">
 								<button name="send" type="submit" class="btn btn-primary"> Đăng nhập</button>
+							</div>
+							<div class="controls">
+								<a href="{{route('provider_login','facebook')}}" class="btn btn-primary">Đăng nhập bằng Facebook</a>
+								<a href="{{route('provider_login','google')}}" class="btn btn-primary">Đăng nhập bằng Google</a>
 							</div>
 						</form>
 						<div id="recover_password" style="display: none;">

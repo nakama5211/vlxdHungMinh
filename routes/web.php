@@ -115,3 +115,19 @@ Route::get('detail/{id}',
 Route::get('giohang',[
 	'as'=>'giohang',
 	'uses'=>'Home_Controller@getGiohang']);
+Route::get('myPage',[
+	'as'=>'myPage',
+	'uses'=>'LoginLogoutRegister_Controller@getMyPage']);
+
+
+
+Route::get('login/{provider}', [
+	'as'=>'provider_login',
+	'uses'=>'LoginLogoutRegister_Controller@redirectToProvider'
+]);
+Route::get('login/{provider}/callback', [
+	'as'=>'provider_login_callback',
+	'uses'=>'LoginLogoutRegister_Controller@handleProviderCallback'
+]);
+
+
