@@ -131,5 +131,9 @@ Route::get('login/{provider}/callback', [
 	'as'=>'provider_login_callback',
 	'uses'=>'LoginLogoutRegister_Controller@handleProviderCallback'
 ]);
+Route::get('active-user',[
+	'as'=>'active-user',
+	'uses'=>'LoginLogoutRegister_Controller@activeUser']
+);
 
 

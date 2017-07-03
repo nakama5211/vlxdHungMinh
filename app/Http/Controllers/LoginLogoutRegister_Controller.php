@@ -11,6 +11,7 @@ use Hash;
 use Auth;
 use Socialite;
 use App\User;
+use Mail;
 
 class LoginLogoutRegister_Controller extends Controller
 {
@@ -38,19 +39,17 @@ class LoginLogoutRegister_Controller extends Controller
         $user->phone = $req->phone;
         $user->address = $req->address;
 
-        if (!$user->save()){
-          return redirect()->back()->with('thongbao','Đăng ký thất bại');
-        }else return redirect()->back()->with('thongbao','Đăng ký thành công, Vui lòng kiểm tra Email');
+        $user->save();
         
-    //     $user = $user->toArray();
-    //     Mail::send('page.mail',['nguoidung'=>$user], function ($message ) use($user)
-    // {
-    //     $message->from('manam5211@gmail.com', 'Web bán bánh');
-    //     $message->to($user['email'], $user['full_name']);
-    //     $message->subject('Submit password');
-    // });
+        $user = $user->toArray();
+        Mail::send('page.mail',['nguoidung'=>$user], function ($message ) use($user)
+    {
+        $message->from('manam5211@gmail.com', 'vlxdHungMinh');
+        $message->to($user['email'], $user['full_name']);
+        $message->subject('Submit password');
+    });
 
-       
+       return redirect()->back()->with('thongbao','Đăng ký thành công, Vui lòng kiểm tra Email');
     }
 
    public function Register()
@@ -117,5 +116,14 @@ class LoginLogoutRegister_Controller extends Controller
       }
       Auth()->login($user);
       return redirect()->route('home')->with(['flash_level'=>'success','flash_message'=>"Đăng nhập thành công"]);
+    }
+
+    public function activeUser(Request $req){
+        $user = User::find($req->id);
+        if($user){
+            $user->active=1;
+            $user->save();
+            return redirect()->route('dangky')->with(['thanhcong','Đã kích hoạt tài khoản']);
+        }
     }
 }

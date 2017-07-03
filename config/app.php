@@ -176,13 +176,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-<<<<<<< HEAD
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 
-=======
-        Barryvdh\DomPDF\ServiceProvider::class,
->>>>>>> 8cce8211bb8728bcd23d603a5a71dda3b0f542ee
+
+       
+
     ],
 
     /*
