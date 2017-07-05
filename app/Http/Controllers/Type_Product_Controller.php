@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductEditRequest;
 use DB;
 use File;
+use Paginator;
 use Illuminate\Support\Facades\Input;
 use App\Product;
 use App\TypeProduct;
@@ -43,7 +44,6 @@ class Type_Product_Controller extends Controller
    				$product=$product->paginate(6);
    				break;
    		}
-   
 
     return view('page.typeproduct',compact('product','typro'));
    }
