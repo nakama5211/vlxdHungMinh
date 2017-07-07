@@ -47,6 +47,7 @@
 <!-- end script -->
 
 <!-- Styles -->
+
 <link href="css/css.css" rel="stylesheet" type="text/css">
 <link href="css/css_002.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/font-awesome.css">
@@ -66,6 +67,7 @@
 <link href="css/settings.css" rel="stylesheet" type="text/css">
 <link href="css/main_styles.css" rel="stylesheet" type="text/css">
 <link href="css/mystyle.css" rel="stylesheet" type="text/css">
+
 <!-- Header hook for plugins ================================================== -->
 
 <!-- script 1-->
@@ -704,8 +706,6 @@ window.onclick = function(event) {
 }
 </script>
 
-
-
 <div id="hello" style="width: 100px; height: 200px; display: none;">
 <div class="modal-content"></div>
 
@@ -725,6 +725,8 @@ Hello</div>
 <!-- Product detail JS,CSS -->
 
 
-<div><div style="display:none"><img src="image/Logging.htm"></div></div></body>
+<div><div style="display:none"><img src="image/Logging.htm"></div></div>
+
+</body>
 </html>
 </html>
